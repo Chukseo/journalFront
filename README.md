@@ -67,6 +67,4 @@ yarn preview
 
 Adjust scripts in package.json to match your stack.
 
-## License
-Specify a license (e.g., MIT) in LICENSE file.
 
