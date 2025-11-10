@@ -1,0 +1,58 @@
+.banner {
+  position: relative;
+  width: 83rem;
+  height: 80vh;
+  background-image: url('http://ugtf.org/img/pgs.png');
+  background-size: cover;
+  background-position: center;
+  /* opacity: 0.9; */
+  /* margin-top: 70px; */
+  /* background-repeat: no-repeat; */
+  /* overflow: hidden; */
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  /* overflow: hidden; */
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100;
+  height: 80vh;
+  background-color: rgba(34, 32, 32, 0.5);
+}
+
+
+.content {
+  position: relative;
+  z-index: 2;
+  color: #2b1f70;
+  text-align: center;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+h1, p {
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+@media (max-width: 768px) {
+    .banner {
+        width: 100%;
+        height: 50vh;
+    }
+    .content {
+        display: grid;
+        font-weight: bolder;
+        /* border: 2px solid #610a0a; */
+  }
+
+
+}
+

@@ -1,0 +1,236 @@
+// working IssueArticles Component
+
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+
+const IssueArticles = ({ issue_id }) => {
+  const [issue, setIssue] = useState(null);
+  const [articles, setArticles] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+  const fetchArticles = async () => {
+    try {
+      const response = await fetch(`http://127.0.0.1:8000/api/issues/${issue_id}/articles/`);
+      const data = await response.json();
+
+      // If API returns a list directly
+      if (Array.isArray(data)) {
+        setArticles(data);
+        setIssue({ title: `Issue ${issue_id}` }); // fallback title
+      } else {
+        // If API returns { issue, articles }
+        setIssue(data.issue || { title: `Issue ${issue_id}` });
+        setArticles(data.articles || []);
+      }
+    } catch (error) {
+      console.error("Error fetching articles:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  fetchArticles();
+}, [issue_id]);
+
+  if (loading) return <p>Loading...</p>;
+
+  return (
+    <div style={styles.container}>
+      {issue && <h1 style={styles.issueTitle}>{issue.title}</h1>}
+      <div style={styles.issueTitle}>
+        {articles.map((issue) => (
+          <div key={issue.id} style={styles.issueTitle}>
+            {issue.title}
+          </div>
+        ))}
+      </div>
+      <div style={styles.articleList}>
+        {articles.map((article) => (
+          <div key={article.id} style={styles.articleCard}>
+            <Link to={`/articles/${article.id}/`} style={styles.articleLink}>
+              {article.title}
+            </Link>
+            {/* <p style={styles.author}>By {article.author}</p> */}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+const styles = {
+  container: {
+    maxWidth: "900px",
+    margin: "0 auto",
+    padding: "20px",
+    fontFamily: "Arial, sans-serif",
+  },
+  issueTitle: {
+    color: "#0A3D62",
+    fontSize: "2rem",
+    marginBottom: "20px",
+    textAlign: "center",
+  },
+  articleList: {
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
+    gap: "20px",
+  },
+  articleCard: {
+    backgroundColor: "#f9f9f9",
+    padding: "15px",
+    borderRadius: "8px",
+    boxShadow: "0 2px 6px rgba(0,0,0,0.1)",
+    transition: "transform 0.2s ease, box-shadow 0.2s ease",
+  },
+  articleLink: {
+    fontSize: "1.2rem",
+    fontWeight: "bold",
+    color: "#1e90ff",
+    textDecoration: "none",
+  },
+  author: {
+    marginTop: "8px",
+    fontSize: "0.9rem",
+    color: "#555",
+  },
+};
+
+export default IssueArticles;
+
+
+
+
+// ArticleView.js
+import React, { useEffect, useState } from "react";
+
+const ArticleView = ({ article_id }) => {
+  const [article, setArticle] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchArticle = async () => {
+      try {
+        const res = await fetch(`http://127.0.0.1:8000/api/articles/${article_id}/`);
+        const data = await res.json();
+        setArticle(data);
+      } catch (err) {
+        console.error("Error fetching article:", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchArticle();
+  }, [article_id]);
+  
+  
+  
+
+  if (loading) return <p>Loading...</p>;
+  if (!article) return <p>No article found.</p>;
+
+  return (
+    <div style={styles.container}>
+      {/* Title */}
+      <h1 style={styles.title}>{article.title}</h1>
+
+      {/* Author */}
+      <h3 style={styles.author}>By {article.authors_id}</h3>
+
+      <div style={styles.content}>
+        {/* Abstract */}
+        <p style={styles.abstract}>{article.abstract}</p>
+        <p style={styles.abstract}>keywords: {article.keywords}</p>
+
+        {/* Issue image + title */}
+        <div style={styles.issueBox}>
+          {article.issue?.image_url && (
+            <img
+              src={article.issue.image_url}
+              alt={article.issue.title}
+              style={styles.issueImage}
+            />
+          )}
+          <p style={styles.issueTitle}>{article.issue?.title}</p>
+        </div>
+      </div>
+
+      {/* Year */}
+      <p style={styles.year}>Year: {article.year}</p>
+
+      {/* PDF URL */}
+      {article.pdf_url && (
+        <a href={article.pdf_url} target="_blank" rel="noopener noreferrer" style={styles.pdfLink}>
+          View Full PDF
+        </a>
+      )}
+    </div>
+  );
+};
+
+const styles = {
+  container: {
+    maxWidth: "1000px",
+    margin: "0 auto",
+    padding: "20px",
+    fontFamily: "Arial, sans-serif",
+  },
+  title: {
+    fontSize: "2rem",
+    color: "#0A3D62",
+    marginBottom: "10px",
+    textAlign: "center",
+  },
+  author: {
+    fontSize: "1.2rem",
+    color: "#555",
+    marginBottom: "20px",
+    textAlign: "center",
+  },
+  content: {
+    display: "flex",
+    flexWrap: "wrap",
+    gap: "20px",
+    marginBottom: "20px",
+  },
+  abstract: {
+    flex: "1 1 60%",
+    fontSize: "1rem",
+    lineHeight: "1.6",
+    color: "#333",
+    textAlign: "left",
+  },
+  issueBox: {
+    flex: "1 1 35%",
+    textAlign: "center",
+  },
+  issueImage: {
+    maxWidth: "100%",
+    borderRadius: "8px",
+    boxShadow: "0 2px 8px rgba(0,0,0,0.2)",
+  },
+  issueTitle: {
+    marginTop: "10px",
+    fontWeight: "bold",
+    color: "#0A3D62",
+  },
+  year: {
+    fontSize: "1rem",
+    color: "#444",
+    marginTop: "10px",
+    textAlign: "center",
+  },
+  pdfLink: {
+    display: "block",
+    marginTop: "15px",
+    textAlign: "center",
+    fontSize: "1.1rem",
+    fontWeight: "bold",
+    color: "#1e90ff",
+    textDecoration: "none",
+  },
+};
+
+export default ArticleView;
