@@ -10,12 +10,12 @@ const IssueArticles = ({ issue_id }) => {
     const fetchData = async () => {
       try {
         // Fetch issue details
-        const issueRes = await fetch(`http://127.0.0.1:8000/api/issues/${issue_id}/`);
+        const issueRes = await fetch(`https://journalapis-p8bu.onrender.com/api/articles/api/issues/${issue_id}/`);
         const issueData = await issueRes.json();
         setIssue(issueData);
 
         // Fetch articles for this issue
-        const articlesRes = await fetch(`http://127.0.0.1:8000/api/issues/${issue_id}/articles/`);
+        const articlesRes = await fetch(`https://journalapis-p8bu.onrender.com/api/articles/api/issues/${issue_id}/articles/`);
         const articlesData = await articlesRes.json();
 
         // Handle both array or object response
