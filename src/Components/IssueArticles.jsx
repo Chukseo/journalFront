@@ -96,8 +96,8 @@ const styles = {
     transition: "transform 0.2s ease, box-shadow 0.2s ease",
   },
   articleLink: {
-    fontSize: "1.2rem",
-    fontWeight: "bold",
+    fontSize: "1rem",
+    // fontWeight: "bold",
     color: "#051b58ff",
     textDecoration: "none",
 
