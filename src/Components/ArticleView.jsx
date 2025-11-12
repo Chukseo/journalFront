@@ -14,7 +14,7 @@ const ArticleView = ({ article_id }) => {
         setArticle(articleData);
 
         
-        const resAuthors = await fetch(`https://journalapis-p8bu.onrender.com/api/articles/api/articles/${article_id}/authors/`);
+        const resAuthors = await fetch(`https://journalapis-p8bu.onrender.com/api/articles/${article_id}/authors/`);
         const authorsData = await resAuthors.json();
         setAuthors(Array.isArray(authorsData) ? authorsData : []);
       } catch (err) {
