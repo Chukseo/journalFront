@@ -9,12 +9,12 @@ const ArticleView = ({ article_id }) => {
     const fetchData = async () => {
       try {
     
-        const resArticle = await fetch(`http://127.0.0.1:8000/api/articles/${article_id}/`);
+        const resArticle = await fetch(`https://journalapis-p8bu.onrender.com/api/articles/${article_id}/`);
         const articleData = await resArticle.json();
         setArticle(articleData);
 
         
-        const resAuthors = await fetch(`http://127.0.0.1:8000/api/articles/${article_id}/authors/`);
+        const resAuthors = await fetch(`https://journalapis-p8bu.onrender.com/api/articles/api/articles/${article_id}/authors/`);
         const authorsData = await resAuthors.json();
         setAuthors(Array.isArray(authorsData) ? authorsData : []);
       } catch (err) {
