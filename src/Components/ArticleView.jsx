@@ -65,17 +65,12 @@ const ArticleView = ({ article_id }) => {
         </div>
       </div>
 
-      
-      {article.pdf_url && (
-        <p>
-          PDF:{" "}
-          <a href={article.pdf_url} target="_blank" rel="noopener noreferrer">
-            Download PDF
-          </a>
-        </p>
+      {article.pdf_url ? (
+        <a href={article.pdf_url} target="_blank" rel="noopener noreferrer" style={styles.pdfLink}>
+          📄 Download PDF
+        </a>
       ) : (
-        <p>No PDF available</p>
-
+        <p style={{ color: "#888", fontStyle: "italic" }}>No PDF available</p>
       )}
     </div>
   );
@@ -113,6 +108,20 @@ const styles = {
     textAlign: "left",
     marginBottom: "10px",
   },
+
+  linkStyle: {
+    display: "inline-block",
+    marginTop: "15px",
+    fontSize: "1.1rem",
+    fontWeight: "bold",
+    color: "#032446",
+    textDecoration: "none",
+    padding: "8px 12px",
+    borderRadius: "6px",
+    backgroundColor: "transparent",
+    transition: "all 0.3s ease",
+  },
+
   abstract: {
     fontSize: "1rem",
     lineHeight: "1.6",
