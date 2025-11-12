@@ -33,7 +33,7 @@ const Cards = () => {
   useEffect(() => {
     const fetchIssues = async () => {
       try {
-        const res = await fetch("http://127.0.0.1:8000/api/journals/1/issues/", {
+        const res = await fetch("https://journalapis-p8bu.onrender.com/api/articles/api/journals/1/issues/", {
           headers: { "Accept": "application/json" },
         });
         if (!res.ok) throw new Error(`Request failed: ${res.status}`);
