@@ -67,7 +67,15 @@ const ArticleView = ({ article_id }) => {
 
       
       {article.pdf_url && (
-        <p> PDF: <a href="{{ article.pdf_file }}">{{ article.pdf_file }}</a></p>
+        <p>
+          PDF:{" "}
+          <a href={article.pdf_file} target="_blank" rel="noopener noreferrer">
+            Download PDF
+          </a>
+        </p>
+      ) : (
+        <p>No PDF available</p>
+
       )}
     </div>
   );
