@@ -30,7 +30,20 @@ const IssueArticles = ({ issue_id }) => {
     fetchData();
   }, [issue_id]);
 
-  if (loading) return <p>Loading...</p>;
+   if (loading) return (
+  <div className="loader">
+    <span></span><span></span><span></span>
+  </div>
+);
+
+  if (!loading && !issue) {
+    return (
+      <div className="empty-state">
+        <h2>No Publications Yet</h2>
+        <p>Try refreshing the page or check in later</p>
+      </div>
+    );
+  }
 
   return (
     <div style={styles.container}>
@@ -96,8 +109,8 @@ const styles = {
     transition: "transform 0.2s ease, box-shadow 0.2s ease",
   },
   articleLink: {
-    fontSize: "1rem",
-    // fontWeight: "bold",
+    fontSize: "1.2rem",
+    fontWeight: "bold",
     color: "#051b58ff",
     textDecoration: "none",
 

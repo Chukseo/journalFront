@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import './ArticleView.css';
 
 const ArticleView = ({ article_id }) => {
   const [article, setArticle] = useState(null);
@@ -27,8 +28,20 @@ const ArticleView = ({ article_id }) => {
     fetchData();
   }, [article_id]);
 
-  if (loading) return <p>Loading...</p>;
-  if (!article) return <p>No article found.</p>;
+  if (loading) return (
+  <div className="loader">
+    <span></span><span></span><span></span>
+  </div>
+);
+
+  if (!loading && !article) {
+    return (
+      <div className="empty-state">
+        <h2>No Article Found</h2>
+        <p>Try refreshing or adding new content.</p>
+      </div>
+    );
+  }
 
   return (
     <div style={styles.container}>
@@ -143,13 +156,14 @@ const styles = {
     fontWeight: "bold",
     color: "#0A3D62",
   },
-  year: {
-    fontSize: "1rem",
-    color: "#444",
-    marginTop: "10px",
-    textAlign: "center",
-  },
-  pdfLink: {
+year: {
+  fontSize: "1rem",
+  color: "#444",
+  marginTop: "10px",
+  textAlign: "center",
+},
+
+pdfLink: {
     display: "block",
     marginTop: "15px",
     textAlign: "center",

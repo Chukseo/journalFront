@@ -33,7 +33,7 @@ const Cards = () => {
   useEffect(() => {
     const fetchIssues = async () => {
       try {
-        const res = await fetch("https://journalapis-p8bu.onrender.com/api/journals/1/issues/", {
+         const res = await fetch("https://journalapis-p8bu.onrender.com/api/journals/1/issues/", {
           headers: { "Accept": "application/json" },
         });
         if (!res.ok) throw new Error(`Request failed: ${res.status}`);
@@ -55,9 +55,14 @@ const Cards = () => {
     fetchIssues();
   }, []);
 
-  if (loading) return <div>Loading issues...</div>;
+  if (loading) return <div className="loader">
+    <span></span><span></span><span></span>
+  </div>;
   if (error) return <div style={{ color: "crimson" }}>Error: {error}</div>;
-  if (!items.length) return <div>No issues found.</div>;
+  if (!items.length) return <div className="empty-state">
+        <h2>No Issue Found</h2>
+        <p>Try refreshing the page or check in later</p>
+      </div>;
 
   return (
     <div className="grid">
