@@ -50,7 +50,10 @@ const ArticleView = ({ article_id }) => {
 
       {/* Authors */}
       <h3 style={styles.author}>
-        By {authors.length > 0 ? authors.map(a => a.name).join(", ") : "Unknown Author"}
+        <br />
+        <br />
+        By 
+        {authors.length > 0 ? authors.map(a => a.name).join(", ") : "Unknown Author"}
       </h3>
         <br />
         <br />
@@ -173,5 +176,6 @@ pdfLink: {
     textDecoration: "none",
   },
 };
+
 
 export default ArticleView;
