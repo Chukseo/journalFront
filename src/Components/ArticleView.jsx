@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import './ArticleView.css';
 
 const ArticleView = ({ article_id }) => {
   const [article, setArticle] = useState(null);
@@ -9,12 +10,12 @@ const ArticleView = ({ article_id }) => {
     const fetchData = async () => {
       try {
     
-        const resArticle = await fetch(`http://127.0.0.1:8000/api/articles/${article_id}/`);
+        const resArticle = await fetch(`https://journalapis-p8bu.onrender.com/api/articles/${article_id}/`);
         const articleData = await resArticle.json();
         setArticle(articleData);
 
         
-        const resAuthors = await fetch(`http://127.0.0.1:8000/api/articles/${article_id}/authors/`);
+        const resAuthors = await fetch(`https://journalapis-p8bu.onrender.com/api/articles/${article_id}/authors/`);
         const authorsData = await resAuthors.json();
         setAuthors(Array.isArray(authorsData) ? authorsData : []);
       } catch (err) {
@@ -27,8 +28,20 @@ const ArticleView = ({ article_id }) => {
     fetchData();
   }, [article_id]);
 
-  if (loading) return <p>Loading...</p>;
-  if (!article) return <p>No article found.</p>;
+  if (loading) return (
+  <div className="loader">
+    <span></span><span></span><span></span>
+  </div>
+);
+
+  if (!loading && !article) {
+    return (
+      <div className="empty-state">
+        <h2>No Article Found</h2>
+        <p>Try refreshing or adding new content.</p>
+      </div>
+    );
+  }
 
   return (
     <div style={styles.container}>
@@ -65,11 +78,12 @@ const ArticleView = ({ article_id }) => {
         </div>
       </div>
 
-      
-      {article.pdf_url && (
+      {article.pdf_url ? (
         <a href={article.pdf_url} target="_blank" rel="noopener noreferrer" style={styles.pdfLink}>
-          View Full PDF
+          📄 Download PDF
         </a>
+      ) : (
+        <p style={{ color: "#888", fontStyle: "italic" }}>No PDF available</p>
       )}
     </div>
   );
@@ -107,6 +121,20 @@ const styles = {
     textAlign: "left",
     marginBottom: "10px",
   },
+
+  linkStyle: {
+    display: "inline-block",
+    marginTop: "15px",
+    fontSize: "1.1rem",
+    fontWeight: "bold",
+    color: "#032446",
+    textDecoration: "none",
+    padding: "8px 12px",
+    borderRadius: "6px",
+    backgroundColor: "transparent",
+    transition: "all 0.3s ease",
+  },
+
   abstract: {
     fontSize: "1rem",
     lineHeight: "1.6",
@@ -128,13 +156,14 @@ const styles = {
     fontWeight: "bold",
     color: "#0A3D62",
   },
-  year: {
-    fontSize: "1rem",
-    color: "#444",
-    marginTop: "10px",
-    textAlign: "center",
-  },
-  pdfLink: {
+year: {
+  fontSize: "1rem",
+  color: "#444",
+  marginTop: "10px",
+  textAlign: "center",
+},
+
+pdfLink: {
     display: "block",
     marginTop: "15px",
     textAlign: "center",
