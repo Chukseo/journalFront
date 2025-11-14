@@ -44,26 +44,35 @@ const ArticleView = ({ article_id }) => {
   }
 
   return (
-    <div style={styles.container}>
+    // <div style={styles.container}>
+    <div className="article-container">
+
       {/* Title */}
-      <h1 style={styles.title}>{article.title}</h1>
+      {/* <h1 style={styles.title}>{article.title}</h1> */}
+      <h1 className="article-title">{article.title}</h1>
+
 
       {/* Authors */}
-      <h3 style={styles.author}>
-        <br />
-        <br />
-        By
-        <br />
-        {authors.length > 0 ? authors.map(a => a.name).join(", ") : "Unknown Author"}
+      {/* <h3 style={styles.author}> */}
+      <h3 className="article-author">
+
+        By <br />{authors.length > 0 ? authors.map(a => a.name).join(", ") : "Unknown Author"}
       </h3>
         <br />
         <br />
         <br />
-      <div style={styles.content}>
+      {/* <div style={styles.content}> */}
+      <div className="article-content">
+
         {/* Abstract + Keywords */}
+        {/* <div style={{ flex: "1 1 60%" }}> */}
         <div style={{ flex: "1 1 60%" }}>
-          <p style={styles.abstractT}>Abstract</p>
-          <p style={styles.abstract}>{article.abstract}</p>
+
+          {/* <p style={styles.abstractT}>Abstract</p> */}
+          <p className="article-abstract-title">Abstract</p>
+          {/* <p style={styles.abstract}>{article.abstract}</p> */}
+          <p className="article-abstract">{article.abstract}</p>
+
           {article.keywords && (
             <p style={styles.abstract}><strong>Keywords:</strong> {article.keywords}</p>
           )}
@@ -180,4 +189,3 @@ pdfLink: {
 
 
 export default ArticleView;
-
