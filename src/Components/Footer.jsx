@@ -8,9 +8,9 @@ const Footer = () => {
         <div className="row text-center text-md-start px-3">
           {/* Brand / Logo */}
           <div className="col-md-4 mb-3">
-            <h5 className="fw-bold text-uppercase">MEHJPS</h5>
+            <h5 className="fw-bold text-uppercase">MEJHPGS</h5>
             <p className="small">
-              Publishing excellence in journals, issues, and articles.
+              a publication of the faculty of Humanities, imo State university, Owerri, Nigeria
             </p>
           </div>
 
@@ -28,8 +28,8 @@ const Footer = () => {
           {/* Contact / Social */}
           <div className="col-md-4 mb-3">
             <h6 className="fw-bold">Contact</h6>
-            <p className="small mb-1">Email: info@mejhpgs.com.ng</p>
-            <p className="small mb-1">Phone: +234-XXX-XXX-XXXX</p>
+            <p className="small mb-1">Email: okafore093@gmail.com</p>
+            <p className="small mb-1">Phone: 08061315110</p>
             <div>
               <a href="#" className="text-light me-3"><i className="bi bi-facebook"></i></a>
               <a href="#" className="text-light me-3"><i className="bi bi-twitter"></i></a>
@@ -41,7 +41,7 @@ const Footer = () => {
         <hr className="border-light" />
 
         <div className="text-center small">
-          © {new Date().getFullYear()} MEHJPS. All rights reserved.
+          © {new Date().getFullYear()} MEJHPGS. All rights reserved.
         </div>
       </div>
     </footer>
