@@ -14,7 +14,7 @@ const OtherJournals = () => {
       url: "#",
     },
     {
-      title: "Journal Three",
+      title: "Odeeokaa",
       image: "https://ugtf.org/img/eng.png",
       url: "#",
     },
