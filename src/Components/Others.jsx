@@ -1,5 +1,5 @@
 import React from "react";
-import "./OtherJournals.css";
+import "./Others.css";
 
 const OtherJournals = () => {
   const journals = [
