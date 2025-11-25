@@ -5,13 +5,15 @@ import Banner from "../Components/Banner";
 import Cards from "../Components/Cards";
 import Footer from "../Components/Footer";
 import AboutJournal from "../Components/AboutJournal";
+import Others from "../Components/Others";
 
 export default function Home() {
   return (
     <>
     <Banner />
     <AboutJournal /> 
-    <Cards /> 
+    <Cards />
+    <Others />
     <Footer /> 
     </> 
   );
