@@ -20,7 +20,7 @@ Frontend for the Journal application — a lightweight interface to create, view
 ## Setup
 1. Clone the repository:
     ```
-    git clone <repo-url> .
+    git clone <[repo-url](https://github.com/Chukseo/journalFront)> .
     ```
 2. Install dependencies:
     ```
