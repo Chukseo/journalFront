@@ -4,19 +4,19 @@ import "./Others.css";
 const OtherJournals = () => {
   const journals = [
     {
-      title: "Journal One",
-      image: "https://via.placeholder.com/300x200?text=Journal+1",
-      url: "https://example.com/journal1",
+      title: "Juvenile Journal",
+      image: "https://ugtf.org/img/cver25.png",
+      url: "https://juvejournalimsu.netlify.app/",
     },
     {
-      title: "Journal Two",
-      image: "https://via.placeholder.com/300x200?text=Journal+2",
-      url: "https://example.com/journal2",
+      title: "Kpakpando",
+      image: "https://ugtf.org/img/hist.png",
+      url: "#",
     },
     {
       title: "Journal Three",
-      image: "https://via.placeholder.com/300x200?text=Journal+3",
-      url: "https://example.com/journal3",
+      image: "https://ugtf.org/img/eng.png",
+      url: "#",
     },
   ];
 
