@@ -11,12 +11,12 @@ const OtherJournals = () => {
     {
       title: "Kpakpando",
       image: "https://ugtf.org/img/hist.png",
-      url: "#",
+      url: "https://kpakpandoimsu.netlify.app/",
     },
     {
       title: "Odeeokaa",
       image: "https://ugtf.org/img/eng.png",
-      url: "#",
+      url: "https://odeeokaaimsu.netlify.app/",
     },
   ];
 
