@@ -12,8 +12,8 @@ const styles = {
     textTransform: 'uppercase',
     letterSpacing: '2px',
     borderBottom: '3px solid #3498db',
-    display: 'inline-block',
-    paddingBottom: '5px'
+    paddingBottom: '5px',
+    width: '100%'   // ✅ ensures full width so textAlign works
   },
   card: {
     border: '1px solid #ddd',
@@ -82,7 +82,7 @@ const Cards = () => {
 
   return (
     <div>
-      {/* ✅ Stylish Heading */}
+      {/* ✅ Centered Stylish Heading */}
       <h2 style={styles.heading}>All Issues</h2>
 
       <div className="grid">
