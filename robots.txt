@@ -1,0 +1,9 @@
+# Allow all crawlers full access to public content
+User-agent: *
+Disallow: /admin/
+Disallow: /api/
+Disallow: /private/
+Allow: /
+
+# Sitemap for better indexing
+Sitemap: https://mejhpgs.netlify.app/sitemap.xml
