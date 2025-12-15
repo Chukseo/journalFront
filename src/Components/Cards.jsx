@@ -3,6 +3,18 @@ import { Link } from "react-router-dom";
 import './Cards.css';
 
 const styles = {
+  heading: {
+    textAlign: 'center',
+    fontSize: '2rem',
+    fontWeight: 'bold',
+    margin: '20px 0',
+    color: '#2c3e50',
+    textTransform: 'uppercase',
+    letterSpacing: '2px',
+    borderBottom: '3px solid #3498db',
+    display: 'inline-block',
+    paddingBottom: '5px'
+  },
   card: {
     border: '1px solid #ddd',
     borderRadius: '8px',
@@ -45,8 +57,7 @@ const Cards = () => {
           imageUrl: Issue.image_url ?? Issue.cover_image ?? Issue.thumbnail ?? "",
         }));
 
-        // ✅ Show ALL issues, not just 4
-        setItems(normalized);
+        setItems(normalized); // ✅ show all issues
       } catch (e) {
         setError(e.message || "Failed to load issues");
       } finally {
@@ -70,30 +81,35 @@ const Cards = () => {
   );
 
   return (
-    <div className="grid">
-      {items.map(item => (
-        <Link 
-          to={`/Issue/${item.id}`}   // ✅ navigate to Issue page by ID
-          key={item.id}
-          style={{ textDecoration: 'none' }}
-        >
-          <div style={styles.card}>
-            <div className="imageWrap">
-              {item.imageUrl ? (
-                <img
-                  src={item.imageUrl}
-                  alt={item.title}
-                  style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
-                  loading="lazy"
-                />
-              ) : (
-                <div style={styles.placeholder}>No image</div>
-              )}
+    <div>
+      {/* ✅ Stylish Heading */}
+      <h2 style={styles.heading}>All Issues</h2>
+
+      <div className="grid">
+        {items.map(item => (
+          <Link 
+            to={`/Issue/${item.id}`}   // ✅ navigate to Issue page by ID
+            key={item.id}
+            style={{ textDecoration: 'none' }}
+          >
+            <div style={styles.card}>
+              <div className="imageWrap">
+                {item.imageUrl ? (
+                  <img
+                    src={item.imageUrl}
+                    alt={item.title}
+                    style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+                    loading="lazy"
+                  />
+                ) : (
+                  <div style={styles.placeholder}>No image</div>
+                )}
+              </div>
+              <div style={styles.title}>{item.title}</div>
             </div>
-            <div style={styles.title}>{item.title}</div>
-          </div>
-        </Link>
-      ))}
+          </Link>
+        ))}
+      </div>
     </div>
   );
 };
