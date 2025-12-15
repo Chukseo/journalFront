@@ -13,7 +13,7 @@ const styles = {
     letterSpacing: '2px',
     borderBottom: '3px solid #3498db',
     paddingBottom: '5px',
-    width: '100%'   // ✅ ensures full width so textAlign works
+    width: '100%'
   },
   card: {
     border: '1px solid #ddd',
@@ -55,9 +55,18 @@ const Cards = () => {
           id: Issue.id ?? Issue.pk ?? Math.random(),
           title: Issue.title ?? Issue.name ?? "Untitled",
           imageUrl: Issue.image_url ?? Issue.cover_image ?? Issue.thumbnail ?? "",
+          createdAt: Issue.created_at ?? Issue.published_date ?? null
         }));
 
-        setItems(normalized); // ✅ show all issues
+        // ✅ Sort latest first (by createdAt if available, else by id)
+        const sorted = normalized.sort((a, b) => {
+          if (a.createdAt && b.createdAt) {
+            return new Date(b.createdAt) - new Date(a.createdAt);
+          }
+          return b.id - a.id;
+        });
+
+        setItems(sorted);
       } catch (e) {
         setError(e.message || "Failed to load issues");
       } finally {
@@ -82,13 +91,11 @@ const Cards = () => {
 
   return (
     <div>
-      {/* ✅ Centered Stylish Heading */}
       <h2 style={styles.heading}>All Issues</h2>
-
       <div className="grid">
         {items.map(item => (
           <Link 
-            to={`/Issue/${item.id}`}   // ✅ navigate to Issue page by ID
+            to={`/Issue/${item.id}`}
             key={item.id}
             style={{ textDecoration: 'none' }}
           >
