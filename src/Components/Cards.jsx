@@ -33,7 +33,7 @@ const Cards = () => {
   useEffect(() => {
     const fetchIssues = async () => {
       try {
-         const res = await fetch("https://journalapis-p8bu.onrender.com/api/journals/1/issues/", {
+        const res = await fetch("https://journalapis-p8bu.onrender.com/api/journals/1/issues/", {
           headers: { "Accept": "application/json" },
         });
         if (!res.ok) throw new Error(`Request failed: ${res.status}`);
@@ -45,7 +45,8 @@ const Cards = () => {
           imageUrl: Issue.image_url ?? Issue.cover_image ?? Issue.thumbnail ?? "",
         }));
 
-        setItems(normalized.slice(0, 4));
+        // ✅ Show ALL issues, not just 4
+        setItems(normalized);
       } catch (e) {
         setError(e.message || "Failed to load issues");
       } finally {
@@ -55,20 +56,24 @@ const Cards = () => {
     fetchIssues();
   }, []);
 
-  if (loading) return <div className="loader">
-    <span></span><span></span><span></span>
-  </div>;
+  if (loading) return (
+    <div className="loader">
+      <span></span><span></span><span></span>
+    </div>
+  );
   if (error) return <div style={{ color: "crimson" }}>Error: {error}</div>;
-  if (!items.length) return <div className="empty-state">
-        <h2>No Issue Found</h2>
-        <p>Try refreshing the page or check in later</p>
-      </div>;
+  if (!items.length) return (
+    <div className="empty-state">
+      <h2>No Issue Found</h2>
+      <p>Try refreshing the page or check in later</p>
+    </div>
+  );
 
   return (
     <div className="grid">
       {items.map(item => (
         <Link 
-          to={`/Issue/${item.id}`}   // ✅ navigate to Issue page
+          to={`/Issue/${item.id}`}   // ✅ navigate to Issue page by ID
           key={item.id}
           style={{ textDecoration: 'none' }}
         >
