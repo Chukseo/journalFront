@@ -1,0 +1,15 @@
+.centered-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;   /* full viewport height */
+  background-color: #f9f9f9; /* optional: soft background */
+}
+
+.centered-image {
+  max-width: 100%;     /* responsive: fits smaller screens */
+  height: auto;        /* keeps aspect ratio */
+  object-fit: contain; /* ensures no stretching */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15); /* optional: subtle shadow */
+  border-radius: 8px;  /* optional: rounded corners */
+}

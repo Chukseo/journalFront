@@ -1,0 +1,17 @@
+.image-container {
+  width: 100%;
+  overflow: hidden;
+}
+
+.responsive-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+/* Hover effect */
+.responsive-image:hover {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}

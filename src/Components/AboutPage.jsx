@@ -11,10 +11,7 @@ const AboutPage = () => {
         Mitochondrial Eve, ordinarily, is regarded as the most recent woman from whom all living humans descended in an unbroken line, purely through their mothers and through the mothers of those mothers, back until all lines converge on one woman. Therefore, it is in recognition and appreciation of the phenomenal roles the Faculty is playing in the promotion of issues concerning mankind and human values of wisdom, truth, knowledge, understanding, etc., that this journal is created. The intent is to promote high- level researches, learning and dexterity among our Post Graduate Students, and assist them in their efforts to fulfill the necessary requirements for their graduation. The Chairman sincerely appreciates the great contributions of scholars who despite their busy schedules accepted our humble requests for professional reviews and advice. To the editors, the advisory board and other relevant and related bodies in the Journal, I strongly appreciate. 
 
       </p>
-      <p style={styles.span}>Prof. Nwankwo Uchenna Martins.</p>
-      <p>(Professor of Globalisation, Terrorism and Integration)</p>
-      <p>PhD, MHSN, MICDER, MCIR, MHOT.</p>
-      <p>Chairman, Editorial Board.</p>
+      
     </div>
   );
 };

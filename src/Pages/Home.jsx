@@ -11,6 +11,7 @@ export default function Home() {
     <>
     <Banner />
     <AboutJournal /> 
+    
     <Cards /> 
     <Footer /> 
     </> 

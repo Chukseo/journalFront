@@ -1,19 +1,30 @@
-import React from 'react';
-import './Banner.css'; 
+import React from "react";
+import "./Banner.css";
+import heroImage from "../assets/img/hero1.jpg"; // rename your uploaded image path accordingly
 
-const Banner = () => {
+const HeroBanner = () => {
   return (
-    <>
-      <div className="banner d-flex align-items-center justify-content-center text-center text-white">
-        <div className="overlay"></div>
-        <div className="content position-relative">
-          <h1 className="display-4 fw-bolder">Mitochondrial Eve Journal of Humanities Postgraduate Studies</h1>
-          <p className="lead">a publication of the faculty of Humanities, imo State university, Owerri, Nigeria</p>
+    <section className="hero-banner">
+      <img src={heroImage} alt="UGTF Academic Journals" className="hero-image" />
+      <div className="hero-content">
+        <h1 className="hero-title"></h1>
+        <p className="hero-subtitle">
+          
+        </p>
+        {/* <button className="hero-btn">Make a Submission</button> */}
+        <div className="hero-stats">
+          <div className="stat">
+            <span className="stat-number"></span>
+            <span className="stat-label"></span>
+          </div>
+          <div className="stat">
+            <span className="stat-number"></span>
+            <span className="stat-label"></span>
+          </div>
         </div>
       </div>
-      
-    </>
+    </section>
   );
 };
 
-export default Banner;
+export default HeroBanner;

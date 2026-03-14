@@ -1,16 +1,16 @@
 import React from "react";
-// import 'bootstrap/dist/css/bootstrap.min.css';
-// import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-// import Banner from "../Components/Banner";
-// import Cards from "../Components/Cards";
-// import Footer from "../Components/Footer";
+import EditorialHero from "../Components/EditorialHero";
+import Edit from "../Components/FullEdit1";
+import CenteredImage from "../Components/CenteredImage";
+import Footer from "../Components/Footer";
 
-export default function Home() {
+export default function Editorial() {
   return (
     <>
-      {/* <Banner />
-      <Cards />
-      <Footer /> */}
+      <EditorialHero />
+      <CenteredImage />
+      <Edit />
+      <Footer />
     </>
   );
 }
