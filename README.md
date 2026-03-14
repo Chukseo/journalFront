@@ -20,7 +20,7 @@ Frontend for the Journal application — a lightweight interface to create, view
 ## Setup
 1. Clone the repository:
     ```
-    git clone <repo-url> .
+    git clone <[repo-url](https://github.com/Chukseo/journalFront)> .
     ```
 2. Install dependencies:
     ```
@@ -66,5 +66,8 @@ yarn preview
 - test — run tests
 
 Adjust scripts in package.json to match your stack.
+
+## Demo Link:
+https://mejhpgs.netlify.app/
 
 
