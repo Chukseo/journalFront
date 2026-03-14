@@ -1,6 +1,10 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 
+// ✅ Import images properly
+import abt1 from "../assets/img/abt1.jpg";
+import abt2 from "../assets/img/abt2.jpg";
+
 const AboutSection = () => {
   return (
     <section className="py-5 bg-light about-section">
@@ -10,12 +14,12 @@ const AboutSection = () => {
           <div className="col-md-6 mb-4 mb-md-0 position-relative">
             <div className="image-stack">
               <img
-                src="/src/assets/img/abt1.jpg"
+                src={abt1}
                 alt="Collaborative environment"
                 className="img-fluid rounded shadow main-img"
               />
               <img
-                src="/src/assets/img/abt2.jpg"
+                src={abt2}
                 alt="Reading in library"
                 className="img-fluid rounded shadow overlap-img"
               />

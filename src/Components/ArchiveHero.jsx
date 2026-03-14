@@ -1,13 +1,17 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 
+// ✅ Import the image
+import archero from "../assets/img/archero.jpg";
+
 const ArchiveHero = () => {
   return (
     <section className="about-hero d-flex align-items-center justify-content-center text-center text-white">
       <div className="w-100">
         <h1 className="fw-bold mb-3">Archives</h1>
         <p className="lead">
-          Advancing research through rigorous review, credible <br></br>authorship, and open access.
+          Advancing research through rigorous review, credible <br /> authorship,
+          and open access.
         </p>
       </div>
 
@@ -15,7 +19,7 @@ const ArchiveHero = () => {
       <style>
         {`
           .about-hero {
-            background: url('/src/assets/img/archero.jpg') center/cover no-repeat;
+            background: url(${archero}) center/cover no-repeat;
             min-height: 400px;
             width: 100vw;
             position: relative;

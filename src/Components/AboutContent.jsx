@@ -1,6 +1,9 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 
+// ✅ Import the image
+import abtcont from "../assets/img/abtcont.jpg";
+
 const AboutContent = () => {
   return (
     <section className="py-5 bg-light w-100">
@@ -9,7 +12,7 @@ const AboutContent = () => {
           {/* Left side: image */}
           <div className="col-md-6 d-flex justify-content-center align-items-center">
             <img
-              src="/src/assets/img/abtcont.jpg"
+              src={abtcont}
               alt="Research and study"
               className="img-fluid rounded shadow content-img"
             />
@@ -21,8 +24,8 @@ const AboutContent = () => {
               Get to Know About Us
             </h5>
             <p className="mb-3 fw-bold fs-4">
-  We are dedicated to advancing knowledge through rigorous research.
-</p>
+              We are dedicated to advancing knowledge through rigorous research.
+            </p>
             <p className="text-muted mb-4">
               We provide a platform for researchers, scholars, and practitioners to present findings
               that are methodologically sound, relevant, and impactful. All submissions undergo a
